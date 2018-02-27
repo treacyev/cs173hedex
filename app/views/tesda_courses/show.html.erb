@@ -1,10 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= @tesda_course.tc_name %>
-</h1>
-
-</br>
+<h1><%= @tesda_course.tc_name %></h1>
 
 <h3> TESDA course information </h3>
 
@@ -18,8 +14,6 @@
     <td><%= @tesda_course.tesda_course_sector.tcs_name %></td>
   </tr>
 </table>
-
-</br>
 
 <h3>Institutions offering <%= @tesda_course.tc_name %></h3>
 
@@ -49,7 +43,10 @@
         <td><%= institution.address_municipality %></td>
         <td><%= institution.address_street_no %></td>
         <td><%= institution.cong_distr_num %></td>
-        <td><%= link_to 'Show', institution %></td>
+        <td><%= link_to institution, class: 'btn btn-primary btn-xs' do %>
+              <i class="glyphicon glyphicon-eye-open"></i> Show
+            <% end %>
+        </td>
       <% if admin_signed_in? %>
         <td><%= link_to 'Edit', edit_institution_path(institution) %></td>
         <td><%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -59,9 +56,9 @@
   </tbody>
 </table>
 
-</br>
-
 <% if admin_signed_in? %>
 <%= link_to 'Edit', edit_tesda_course_path(@tesda_course) %> |
 <% end %>
-<%= link_to 'Back', tesda_course_sectors_path %>
+<%= link_to tesda_course_sectors_path, class: 'btn btn-primary btn-xs' do %>
+    <i class="glyphicon glyphicon-arrow-left"></i> Back
+<% end %>

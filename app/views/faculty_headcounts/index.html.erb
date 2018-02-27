@@ -2,8 +2,6 @@
 
 <h2>Institution: <%= @institution.name %></h2>
 
-</br>
-
 <h3>Faculty Headcounts</h3>
 <table class = "table-bordered stats-table">
   <thead>
@@ -31,7 +29,10 @@
         <td><%= faculty_headcount.ms_ma %></td>
         <td><%= faculty_headcount.phd %></td>
         <td><%= faculty_headcount.maintainer %></td>
-        <td><%= link_to 'Show', [@institution, faculty_headcount] %></td>
+        <td><%= link_to [@institution, faculty_headcount], class: 'btn btn-primary btn-xs' do %>
+              <i class="glyphicon glyphicon-eye-open"></i> Show
+            <% end %>
+        </td>
       <% if admin_signed_in? %>
         <td><%= link_to 'Edit', edit_institution_faculty_headcount_path(@institution, faculty_headcount) %></td>
         <td><%= link_to 'Destroy', [@institution, faculty_headcount], method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -41,9 +42,9 @@
   </tbody>
 </table>
 
-<br>
-
 <% if admin_signed_in? %>
 <%= link_to 'New Faculty Headcount', new_institution_faculty_headcount_path %> |
 <% end %>
-<%= link_to 'Back', @institution %>
+<%= link_to @institution, class: 'btn btn-primary btn-xs' do %>
+    <i class="glyphicon glyphicon-arrow-left"></i> Back
+<% end %>

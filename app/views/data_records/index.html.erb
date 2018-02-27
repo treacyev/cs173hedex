@@ -29,7 +29,10 @@
         <td><%= data_record.enrolled %></td>
         <td><%= data_record.graduated %></td>
         <td><%= data_record.cost_per_stud %></td>
-        <td><%= link_to 'Show', [@institution, data_record] %></td>
+        <td><%= link_to [@institution, data_record], class: 'btn btn-primary btn-xs' do %>
+              <i class="glyphicon glyphicon-eye-open"></i> Show
+            <% end %>
+        </td>
       <% if admin_signed_in? %>
         <td><%= link_to 'Edit', edit_institution_data_record_path(@institution, data_record) %></td>
         <td><%= link_to 'Destroy', [@institution, data_record], method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -39,9 +42,9 @@
   </tbody>
 </table>
 
-<br>
-
 <% if admin_signed_in? %>
 <%= link_to 'New Data Record', new_institution_data_record_path %> |
 <% end %>
-<%= link_to 'Back', @institution %>
+<%= link_to @institution, class: 'btn btn-primary btn-xs' do %>
+    <i class="glyphicon glyphicon-arrow-left"></i> Back
+<% end %>
