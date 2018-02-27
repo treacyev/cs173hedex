@@ -1,10 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2>
-  TESDA Course Sector: <%= @tesda_course_sector.tcs_name %>
-</h2>
-
-</br>
+<h2>TESDA Course Sector: <%= @tesda_course_sector.tcs_name %></h2>
 
 <h3> Sector summary </h3>
 
@@ -14,8 +10,6 @@
     <td><%= @tesda_course_sector.tcs_desc %></td>
   </tr>
 </table>
-
-</br>
 
 <h3>TESDA Courses under <%= @tesda_course_sector.tcs_name %></h3>
 
@@ -36,7 +30,10 @@
       <tr>
         <td><%= tesda_course.tc_name %></td>
         <td><%= tesda_course.tc_hrs_dur %></td>
-        <td><%= link_to 'Show course', tesda_course %></td>
+        <td><%= link_to tesda_course, class: 'btn btn-primary btn-xs' do %>
+              <i class="glyphicon glyphicon-eye-open"></i> Show course
+            <% end %>
+        </td>
       <% if admin_signed_in? %>
         <td><%= link_to 'Edit course', edit_tesda_course_path(tesda_course) %></td>
         <td><%= link_to 'Destroy course', tesda_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -46,10 +43,10 @@
   </tbody>
 </table>
 
-</br>
-
 <% if admin_signed_in? %>
 <%= link_to 'New TESDA Course', new_tesda_course_path %> |
 <%= link_to 'Edit course sector', edit_tesda_course_sector_path(@tesda_course_sector) %> |
 <% end %>
-<%= link_to 'Back', tesda_course_sectors_path %>
+<%= link_to tesda_course_sectors_path, class: 'btn btn-primary btn-xs' do %>
+    <i class="glyphicon glyphicon-arrow-left"></i> Back
+<% end %>

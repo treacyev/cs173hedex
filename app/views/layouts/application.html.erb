@@ -14,13 +14,19 @@
         <nav>
           <ul class = "nav navbar-nav navbar-left">
             <li>
-            <%= link_to('Institutions Index', institutions_path) %> 
+            <%= link_to institutions_path do %>
+              <i class="glyphicon glyphicon-book"></i> Institutions Index
+            <% end %>
             </li>
             <li>
-            <%= link_to('TESDA Tracker', tesda_course_sectors_path) %>
+            <%= link_to tesda_course_sectors_path do %>
+              <i class="glyphicon glyphicon-screenshot"></i> TESDA Tracker
+            <% end %>
             </li>
             <li>
-            <%= link_to('Region Records', regions_path) %>
+            <%= link_to regions_path do %>
+              <i class="glyphicon glyphicon-list-alt"></i> Region Records
+            <% end %>
             </li>
             <% if principal_signed_in? %>
             <li>
@@ -50,10 +56,14 @@
               </li>
             <% else %>
               <li>
-              <%= link_to('Login as Principal', new_principal_session_path)  %>
+              <%= link_to new_principal_session_path do %>
+                <i class="glyphicon glyphicon-log-in"></i> Login as Principal
+              <% end %>
               </li>
               <li>
-              <%= link_to('Login as Admin', new_admin_session_path) %>
+              <%= link_to new_admin_session_path do %>
+                <i class="glyphicon glyphicon-log-in"></i> Login as Admin
+              <% end %>
               </li>
             <% end %>
           </ul>

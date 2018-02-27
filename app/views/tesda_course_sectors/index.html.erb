@@ -20,7 +20,10 @@
       <tr>
         <td><%= tesda_course_sector.tcs_name %></td>
         <td><%= tesda_course_sector.tcs_desc %></td>
-        <td><%= link_to 'Show', tesda_course_sector %></td>
+        <td><%= link_to tesda_course_sector, class: 'btn btn-primary btn-xs' do %>
+              <i class="glyphicon glyphicon-eye-open"></i> Show
+            <% end %>
+        </td>
       <% if admin_signed_in? %>
         <td><%= link_to 'Edit', edit_tesda_course_sector_path(tesda_course_sector) %></td>
         <td><%= link_to 'Destroy', tesda_course_sector, method: :delete, data: { confirm: 'Are you sure?' } %></td>

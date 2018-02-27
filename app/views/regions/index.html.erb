@@ -18,7 +18,10 @@
     <% @regions.each do |region| %>
       <tr>
         <td><%= region.region_name %></td>
-        <td><%= link_to 'Show', region %></td>
+        <td><%= link_to region, class: 'btn btn-primary btn-xs' do %>
+              <i class="glyphicon glyphicon-eye-open"></i> Show
+            <% end %>
+        </td>
       <% if admin_signed_in? %>
         <td><%= link_to 'Edit', edit_region_path(region) %></td>
         <td><%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>

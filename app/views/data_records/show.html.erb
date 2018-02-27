@@ -38,4 +38,6 @@
 <% if admin_signed_in? %>
 <%= link_to 'Edit', edit_institution_data_record_path(@institution, @data_record) %> |
 <% end %>
-<%= link_to 'Back', institution_data_records_path %>
+<%= link_to institution_data_records_path, class: 'btn btn-primary btn-xs' do %>
+    <i class="glyphicon glyphicon-arrow-left"></i> Back
+<% end %>

@@ -33,4 +33,6 @@
 <% if admin_signed_in? %>
 <%= link_to 'Edit', edit_institution_tuition_path(@institution, @tuition) %> |
 <% end %>
-<%= link_to 'Back', institution_tuitions_path %>
+<%= link_to institution_tuitions_path, class: 'btn btn-primary btn-xs' do %>
+    <i class="glyphicon glyphicon-arrow-left"></i> Back
+<% end %>
