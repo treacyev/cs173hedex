@@ -12,6 +12,7 @@ default: &default
   username: "hedex_user"
   password: "hedex_password"
   template: template0
+  host: localhost
 
 development:
   <<: *default

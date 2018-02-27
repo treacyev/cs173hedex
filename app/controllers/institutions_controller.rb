@@ -1,6 +1,9 @@
 class InstitutionsController < SuperuserController
   before_action :set_institution, only: [:show, :edit, :update, :destroy]
 
+  def landing
+  end
+
   # GET /institutions
   # GET /institutions.json
   def index
