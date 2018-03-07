@@ -6,9 +6,9 @@ class TesdaCourseSectorsController < SuperuserController
   def index
     @tesda_course_sectors = TesdaCourseSector.all
     if params[:search]
-      @tesda_course_sectors = TesdaCourseSector.search(params[:search]).order("created_at DESC")
+      @tesda_course_sectors = TesdaCourseSector.search(params[:search]).order("tcs_name ASC")
     else
-      @tesda_course_sectors = TesdaCourseSector.all.order("created_at DESC")
+      @tesda_course_sectors = TesdaCourseSector.all.order("tcs_name ASC")
     end 
   end
 

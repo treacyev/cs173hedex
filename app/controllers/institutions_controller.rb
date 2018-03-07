@@ -6,9 +6,9 @@ class InstitutionsController < SuperuserController
   def index
     @institutions = Institution.all
     if params[:search]
-      @institutions = Institution.search(params[:search]).order("created_at DESC")
+      @institutions = Institution.search(params[:search]).order("name ASC")
     else
-      @institutions = Institution.all.order("created_at DESC")
+      @institutions = Institution.all.order("name ASC")
     end 
   end
 

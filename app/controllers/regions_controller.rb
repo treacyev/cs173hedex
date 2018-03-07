@@ -6,9 +6,9 @@ class RegionsController < SuperuserController
   def index
     @regions = Region.all
     if params[:search]
-      @regions = Region.search(params[:search]).order("created_at DESC")
+      @regions = Region.search(params[:search]).order("region_name ASC")
     else
-      @regions = Region.all.order("created_at DESC")
+      @regions = Region.all.order("region_name ASC")
     end 
   end
 
