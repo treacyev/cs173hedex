@@ -1,13 +1,15 @@
 class InstitutionsController < SuperuserController
   before_action :set_institution, only: [:show, :edit, :update, :destroy]
 
-  def landing
-  end
-
   # GET /institutions
   # GET /institutions.json
   def index
     @institutions = Institution.all
+    if params[:search]
+      @institutions = Institution.search(params[:search]).order("created_at DESC")
+    else
+      @institutions = Institution.all.order("created_at DESC")
+    end 
   end
 
   # GET /institutions/1

@@ -1,3 +1,12 @@
+<%= form_tag(institutions_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Institutions" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% if @institutions.blank? %>
+  <h4>There are no institutions to display.</h4>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Institutions</h1>

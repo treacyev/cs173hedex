@@ -5,6 +5,11 @@ class RegionsController < SuperuserController
   # GET /regions.json
   def index
     @regions = Region.all
+    if params[:search]
+      @regions = Region.search(params[:search]).order("created_at DESC")
+    else
+      @regions = Region.all.order("created_at DESC")
+    end 
   end
 
   # GET /regions/1
