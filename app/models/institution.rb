@@ -8,4 +8,8 @@ class Institution < ApplicationRecord
   has_many :sections, dependent: :delete_all
   has_many :teachers, dependent: :delete_all
   has_many :principals, dependent: :delete_all
+
+  def self.search(search)
+  	where("name ILIKE ? OR inst_class ILIKE ? OR address_province ILIKE ? OR address_municipality ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+  end
 end
