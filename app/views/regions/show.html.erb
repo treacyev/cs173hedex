@@ -2,17 +2,20 @@
 
 <h2>Region: <%= @region.region_name %></h2>
 
-<% if admin_signed_in? %>
-<%= link_to 'Edit', edit_region_path(@region) %> |
-<% end %>
-
-<%= link_to [@region, :regional_data_records], class: 'btn btn-primary btn-xs' do %>
+<%= link_to [@region, :regional_data_records], class: "btn btn-primary btn-xs" do %>
     <i class="glyphicon glyphicon-stats"></i> Show statistics
 <% end %>
 
+<% if admin_signed_in? %>
+  |
+  <%= link_to edit_region_path(@region), class: "btn btn-info btn-xs" do %>
+    <i class="glyphicon glyphicon-pencil"></i> Edit
+  <% end %>
+<% end %>
+
 </br>
 </br>
 
-<%= link_to regions_path, class: 'btn btn-primary btn-xs' do %>
+<%= link_to regions_path, class: "btn btn-primary btn-xs" do %>
     <i class="glyphicon glyphicon-arrow-left"></i> Back
 <% end %>

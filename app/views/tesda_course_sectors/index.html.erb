@@ -1,17 +1,32 @@
-<%= form_tag(tesda_course_sectors_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search TESDA Course Sectors" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
-
-<% if @tesda_course_sectors.blank? %>
-  <h4>There are no TESDA Course Sectors to display.</h4>
-<% end %>
-
 <p id="notice"><%= notice %></p>
 
 <h1>TESDA Course Sectors</h1>
 
-<table class = "table-bordered stats-table">
+<%= form_tag(tesda_course_sectors_path, :method => "get", id: "search-form") do %>
+  <div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="field form-group form-inline">
+      <div class="col-sm-4">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search TESDA Course Sectors" %>
+        <%= button_tag(type: "submit", class: "btn btn-default btn-md", :name => nil) do%>
+          <i class="glyphicon glyphicon-search"></i> Search
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+<% end %>
+
+<% if @tesda_course_sectors.blank? %>
+  <br />
+  <div class="alert alert-info">
+    There are no TESDA Course Sectors to display.
+  </div>
+<% end %>
+
+<table class = "table-bordered table-striped stats-table">
   <thead>
     <tr>
       <th>Sector name</th>
@@ -29,21 +44,29 @@
       <tr>
         <td><%= tesda_course_sector.tcs_name %></td>
         <td><%= tesda_course_sector.tcs_desc %></td>
-        <td><%= link_to tesda_course_sector, class: 'btn btn-primary btn-xs' do %>
+        <td><%= link_to tesda_course_sector, class: "btn btn-primary btn-xs" do %>
               <i class="glyphicon glyphicon-eye-open"></i> Show
             <% end %>
         </td>
       <% if admin_signed_in? %>
-        <td><%= link_to 'Edit', edit_tesda_course_sector_path(tesda_course_sector) %></td>
-        <td><%= link_to 'Destroy', tesda_course_sector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to edit_tesda_course_sector_path(tesda_course_sector), class: "btn btn-info btn-xs" do %>
+            <i class="glyphicon glyphicon-pencil"></i> Edit
+          <% end %>
+        </td>
+        <td>
+          <%= link_to tesda_course_sector, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
+            <i class="glyphicon glyphicon-remove"></i> Destroy
+          <% end %>  
+        </td>
       <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
 <% if admin_signed_in? %>
-<%= link_to 'New TESDA Course Sector', new_tesda_course_sector_path %>
+  <%= link_to new_tesda_course_sector_path, class: "btn btn-success btn-xs" do %>
+    <i class="glyphicon glyphicon-plus"></i> New TESDA Course Sector
+  <% end %>
 <% end %>

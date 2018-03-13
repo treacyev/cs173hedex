@@ -3,7 +3,7 @@
 <h2>Region: <%= @region.region_name %></h2>
 
 <h3>Regional Data Records</h3>
-<table class = "table-bordered stats-table">
+<table class = "table-bordered table-striped stats-table">
   <thead>
     <tr>
       <th>Release date</th>
@@ -39,22 +39,33 @@
         <td><%= regional_data_record.local_colleges_and_uni %></td>
         <td><%= regional_data_record.SUCs_main %></td>
         <td><%= regional_data_record.SUCs_sat %></td>
-        <td><%= link_to [@region, regional_data_record], class: 'btn btn-primary btn-xs' do %>
+        <td><%= link_to [@region, regional_data_record], class: "btn btn-primary btn-xs" do %>
               <i class="glyphicon glyphicon-eye-open"></i> Show
             <% end %>
         </td>
       <% if admin_signed_in? %>
-        <td><%= link_to 'Edit', edit_region_regional_data_record_path(@region, regional_data_record) %></td>
-        <td><%= link_to 'Destroy', [@region, regional_data_record], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to edit_region_regional_data_record_path(@region, regional_data_record), class: "btn btn-info btn-xs" do %>
+            <i class="glyphicon glyphicon-pencil"></i> Edit
+          <% end %>
+        </td>
+        <td>
+          <%= link_to [@region, regional_data_record], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
+            <i class="glyphicon glyphicon-remove"></i> Destroy
+          <% end %>  
+        </td>
       <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<% if admin_signed_in? %>
-<%= link_to 'New Regional Data Record', new_region_regional_data_record_path %> |
+<%= link_to @region, class: "btn btn-primary btn-xs" do %>
+  <i class="glyphicon glyphicon-arrow-left"></i> Back
 <% end %>
-<%= link_to @region, class: 'btn btn-primary btn-xs' do %>
-    <i class="glyphicon glyphicon-arrow-left"></i> Back
+<% if admin_signed_in? %>
+  | 
+  <%= link_to new_region_regional_data_record_path, class: "btn btn-success btn-xs" do %>
+    <i class="glyphicon glyphicon-plus"></i> New Regional Data Record
+  <% end %>
 <% end %>
