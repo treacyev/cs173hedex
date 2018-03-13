@@ -30,18 +30,18 @@
       <tr>
         <td><%= tesda_course.tc_name %></td>
         <td><%= tesda_course.tc_hrs_dur %></td>
-        <td><%= link_to tesda_course, class: 'btn btn-primary btn-xs' do %>
+        <td><%= link_to tesda_course, class: "btn btn-primary btn-xs" do %>
               <i class="glyphicon glyphicon-eye-open"></i> Show course
             <% end %>
         </td>
       <% if admin_signed_in? %>
         <td>
-          <%= link_to edit_tesda_course_path(tesda_course), class: 'btn btn-info btn-xs' do %>
+          <%= link_to edit_tesda_course_path(tesda_course), class: "btn btn-info btn-xs" do %>
             <i class="glyphicon glyphicon-pencil"></i> Edit course
           <% end %>
         </td>
         <td>
-          <%= link_to tesda_course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+          <%= link_to tesda_course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
             <i class="glyphicon glyphicon-remove"></i> Destroy course
           <% end %>  
         </td>
@@ -51,16 +51,16 @@
   </tbody>
 </table>
 
-<%= link_to tesda_course_sectors_path, class: 'btn btn-primary btn-xs' do %>
+<%= link_to tesda_course_sectors_path, class: "btn btn-primary btn-xs" do %>
   <i class="glyphicon glyphicon-arrow-left"></i> Back
 <% end %>
 <% if admin_signed_in? %>
   | 
-  <%= link_to new_tesda_course_path, class: 'btn btn-success btn-xs' do %>
+  <%= link_to new_tesda_course_path, class: "btn btn-success btn-xs" do %>
     <i class="glyphicon glyphicon-plus"></i> New TESDA Course
   <% end %>
   |
-  <%= link_to edit_tesda_course_sector_path(@tesda_course_sector), class: 'btn btn-info btn-xs' do %>
+  <%= link_to edit_tesda_course_sector_path(@tesda_course_sector), class: "btn btn-info btn-xs" do %>
     <i class="glyphicon glyphicon-pencil"></i> Edit course sector
   <% end %>
 <% end %>

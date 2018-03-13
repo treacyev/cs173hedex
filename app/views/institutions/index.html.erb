@@ -1,15 +1,30 @@
-<%= form_tag(institutions_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Institutions" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
-
-<% if @institutions.blank? %>
-  <h4>There are no institutions to display.</h4>
-<% end %>
-
 <p id="notice"><%= notice %></p>
 
 <h1>Institutions</h1>
+
+<%= form_tag(institutions_path, :method => "get", id: "search-form") do %>
+  <div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="field form-group form-inline">
+      <div class="col-sm-4">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Institutions" %>
+        <%= button_tag(type: "submit", class: "btn btn-default btn-md", :name => nil) do%>
+          <i class="glyphicon glyphicon-search"></i> Search
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+<% end %>
+
+<% if @institutions.blank? %>
+  <br />
+  <div class="alert alert-info">
+    There are no Institutions to display.
+  </div>
+<% end %>
 
 <table class = "table-bordered table-striped stats-table">
   <thead>
@@ -38,18 +53,18 @@
         <td><%= institution.address_street_no %></td>
         <td><%= institution.cong_distr_num %></td>
         <td>
-          <%= link_to institution, class: 'btn btn-primary btn-xs' do %>
+          <%= link_to institution, class: "btn btn-primary btn-xs" do %>
             <i class="glyphicon glyphicon-eye-open"></i> Show
           <% end %>
         </td>
       <% if admin_signed_in? %>
         <td>
-          <%= link_to edit_institution_path(institution), class: 'btn btn-info btn-xs' do %>
+          <%= link_to edit_institution_path(institution), class: "btn btn-info btn-xs" do %>
             <i class="glyphicon glyphicon-pencil"></i> Edit
           <% end %>
         </td>
         <td>
-          <%= link_to institution, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+          <%= link_to institution, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
             <i class="glyphicon glyphicon-remove"></i> Destroy
           <% end %>  
         </td>
@@ -60,7 +75,7 @@
 </table>
 
 <% if admin_signed_in? %>
-  <%= link_to new_institution_path, class: 'btn btn-success btn-xs' do %>
+  <%= link_to new_institution_path, class: "btn btn-success btn-xs" do %>
     <i class="glyphicon glyphicon-plus"></i> New Institution
   <% end %>
 <% end %>

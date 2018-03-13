@@ -60,12 +60,12 @@
   <%= @regional_data_record.SUCs_sat %>
 </p>
 
-<%= link_to region_regional_data_records_path, class: 'btn btn-primary btn-xs' do %>
+<%= link_to region_regional_data_records_path, class: "btn btn-primary btn-xs" do %>
   <i class="glyphicon glyphicon-arrow-left"></i> Back
 <% end %>
 <% if admin_signed_in? %>
   |
-  <%= link_to edit_region_regional_data_record_path(@region, @regional_data_record), class: 'btn btn-info btn-xs' do %>
+  <%= link_to edit_region_regional_data_record_path(@region, @regional_data_record), class: "btn btn-info btn-xs" do %>
     <i class="glyphicon glyphicon-pencil"></i> Edit
   <% end %>
 <% end %>
