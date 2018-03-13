@@ -1,5 +1,5 @@
 require 'test_helper'
-
+=begin
 class InstContactsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @inst_contact = inst_contacts(:one)
@@ -46,3 +46,4 @@ class InstContactsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to inst_contacts_url
   end
 end
+=end

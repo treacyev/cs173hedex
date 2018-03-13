@@ -1,5 +1,5 @@
 require 'test_helper'
-
+=begin
 class SectionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @section = sections(:one)
@@ -46,3 +46,4 @@ class SectionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to sections_url
   end
 end
+=end

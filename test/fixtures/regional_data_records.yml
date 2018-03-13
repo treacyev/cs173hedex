@@ -12,7 +12,6 @@ one:
   ched_supervised_institution: 1
   local_colleges_and_uni: 1
   SUCs_main: MyString
-  integer: MyString
   SUCs_sat: 1
 
 two:
@@ -27,5 +26,4 @@ two:
   ched_supervised_institution: 1
   local_colleges_and_uni: 1
   SUCs_main: MyString
-  integer: MyString
   SUCs_sat: 1

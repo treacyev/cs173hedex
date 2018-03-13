@@ -1,5 +1,5 @@
 require 'test_helper'
-
+=begin
 class RegionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @region = regions(:one)
@@ -46,3 +46,4 @@ class RegionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to regions_url
   end
 end
+=end

@@ -1,5 +1,5 @@
 require 'test_helper'
-
+=begin
 class TesdaCourseSectorsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @tesda_course_sector = tesda_course_sectors(:one)
@@ -46,3 +46,4 @@ class TesdaCourseSectorsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to tesda_course_sectors_url
   end
 end
+=end
