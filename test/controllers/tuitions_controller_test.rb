@@ -1,5 +1,5 @@
 require 'test_helper'
-
+=begin
 class TuitionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @tuition = tuitions(:one)
@@ -46,3 +46,4 @@ class TuitionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to tuitions_url
   end
 end
+=end

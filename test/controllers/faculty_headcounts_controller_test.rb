@@ -1,5 +1,5 @@
 require 'test_helper'
-
+=begin
 class FacultyHeadcountsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @faculty_headcount = faculty_headcounts(:one)
@@ -46,3 +46,4 @@ class FacultyHeadcountsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to faculty_headcounts_url
   end
 end
+=end

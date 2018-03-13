@@ -1,5 +1,5 @@
 require 'test_helper'
-
+=begin
 class InstitutionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @institution = institutions(:one)
@@ -46,3 +46,4 @@ class InstitutionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to institutions_url
   end
 end
+=end
