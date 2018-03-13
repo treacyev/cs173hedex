@@ -23,17 +23,17 @@
         <td><%= section.grade_level %></td>
         <td><%= section.institution.name %></td>
         <td>
-          <%= link_to section, class: 'btn btn-primary btn-xs' do %>
+          <%= link_to section, class: "btn btn-primary btn-xs" do %>
             <i class="glyphicon glyphicon-eye-open"></i> Show
           <% end %>
         </td>
         <td>
-          <%= link_to edit_section_path(section), class: 'btn btn-info btn-xs' do %>
+          <%= link_to edit_section_path(section), class: "btn btn-info btn-xs" do %>
             <i class="glyphicon glyphicon-pencil"></i> Edit
           <% end %>
         </td>
         <td>
-          <%= link_to section, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+          <%= link_to section, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
             <i class="glyphicon glyphicon-remove"></i> Destroy
           <% end %>
         </td>
@@ -42,6 +42,6 @@
   </tbody>
 </table>
 
-<%= link_to new_section_path, class: 'btn btn-success btn-xs' do %>
+<%= link_to new_section_path, class: "btn btn-success btn-xs" do %>
   <i class="glyphicon glyphicon-plus"></i> New Section
 <% end %>

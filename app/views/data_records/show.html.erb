@@ -35,12 +35,12 @@
   <%= @data_record.cost_per_stud %>
 </p>
 
-<%= link_to institution_data_records_path, class: 'btn btn-primary btn-xs' do %>
+<%= link_to institution_data_records_path, class: "btn btn-primary btn-xs" do %>
   <i class="glyphicon glyphicon-arrow-left"></i> Back
 <% end %>
 <% if admin_signed_in? %>
   |
-  <%= link_to edit_institution_data_record_path(@institution, @data_record), class: 'btn btn-info btn-xs' do %>
+  <%= link_to edit_institution_data_record_path(@institution, @data_record), class: "btn btn-info btn-xs" do %>
     <i class="glyphicon glyphicon-pencil"></i> Edit
   <% end %>
 <% end %>

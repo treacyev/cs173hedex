@@ -39,18 +39,18 @@
         <td><%= regional_data_record.local_colleges_and_uni %></td>
         <td><%= regional_data_record.SUCs_main %></td>
         <td><%= regional_data_record.SUCs_sat %></td>
-        <td><%= link_to [@region, regional_data_record], class: 'btn btn-primary btn-xs' do %>
+        <td><%= link_to [@region, regional_data_record], class: "btn btn-primary btn-xs" do %>
               <i class="glyphicon glyphicon-eye-open"></i> Show
             <% end %>
         </td>
       <% if admin_signed_in? %>
         <td>
-          <%= link_to edit_region_regional_data_record_path(@region, regional_data_record), class: 'btn btn-info btn-xs' do %>
+          <%= link_to edit_region_regional_data_record_path(@region, regional_data_record), class: "btn btn-info btn-xs" do %>
             <i class="glyphicon glyphicon-pencil"></i> Edit
           <% end %>
         </td>
         <td>
-          <%= link_to [@region, regional_data_record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+          <%= link_to [@region, regional_data_record], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do %>
             <i class="glyphicon glyphicon-remove"></i> Destroy
           <% end %>  
         </td>
@@ -60,12 +60,12 @@
   </tbody>
 </table>
 
-<%= link_to @region, class: 'btn btn-primary btn-xs' do %>
+<%= link_to @region, class: "btn btn-primary btn-xs" do %>
   <i class="glyphicon glyphicon-arrow-left"></i> Back
 <% end %>
 <% if admin_signed_in? %>
   | 
-  <%= link_to new_region_regional_data_record_path, class: 'btn btn-success btn-xs' do %>
+  <%= link_to new_region_regional_data_record_path, class: "btn btn-success btn-xs" do %>
     <i class="glyphicon glyphicon-plus"></i> New Regional Data Record
   <% end %>
 <% end %>
