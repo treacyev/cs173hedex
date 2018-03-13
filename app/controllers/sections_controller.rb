@@ -5,7 +5,7 @@ class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
   def index
-    @sections = current_principal.institution.sections.all
+    @sections = current_principal.institution.sections.all.order("year DESC, name ASC")
   end
 
   # GET /sections/1

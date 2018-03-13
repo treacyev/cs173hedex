@@ -5,6 +5,11 @@ class TesdaCourseSectorsController < SuperuserController
   # GET /tesda_course_sectors.json
   def index
     @tesda_course_sectors = TesdaCourseSector.all
+    if params[:search]
+      @tesda_course_sectors = TesdaCourseSector.search(params[:search]).order("tcs_name ASC")
+    else
+      @tesda_course_sectors = TesdaCourseSector.all.order("tcs_name ASC")
+    end 
   end
 
   # GET /tesda_course_sectors/1

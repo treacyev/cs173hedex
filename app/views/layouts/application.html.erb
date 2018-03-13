@@ -61,7 +61,8 @@
                   <i class="glyphicon glyphicon-log-out"></i> Log Out (Principal)
                 <% end %>
               </li>
-            <% else %>
+            <% end %>
+            <% if !admin_signed_in? && !principal_signed_in? %>
               <li>
                 <%= link_to new_principal_session_path do %>
                   <i class="glyphicon glyphicon-log-in"></i> Log In as Principal

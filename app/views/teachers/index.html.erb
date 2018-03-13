@@ -1,3 +1,12 @@
+<%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Teachers" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% if @teachers.blank? %>
+  <h4>There are no Teachers to display.</h4>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Teachers</h1>
@@ -15,6 +24,7 @@
   <tbody>
     <% @teachers.each do |teacher| %>
       <tr>
+        <td><%= teacher.t_lname %></td>
         <td><%= teacher.t_fname %></td>
         <td><%= teacher.t_mname %></td>
         <td><%= teacher.t_lname %></td>

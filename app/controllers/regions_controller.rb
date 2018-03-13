@@ -5,6 +5,11 @@ class RegionsController < SuperuserController
   # GET /regions.json
   def index
     @regions = Region.all
+    if params[:search]
+      @regions = Region.search(params[:search]).order("region_name ASC")
+    else
+      @regions = Region.all.order("region_name ASC")
+    end 
   end
 
   # GET /regions/1

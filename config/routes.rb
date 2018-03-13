@@ -7,8 +7,7 @@ Rails.application.routes.draw do
     resources :regional_data_records
   end
   devise_for :principals, :controllers => { registrations: 'registrations' }
-  #root to: 'institutions#index'
-  root to: 'institutions#landing'
+  root to: 'institutions#index'
   resources :sections
   resources :teachers
   resources :tesda_courses
