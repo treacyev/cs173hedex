@@ -2,7 +2,7 @@
 
 <h1>TESDA Courses</h1>
 
-<table class = "table-bordered stats-table">
+<table class = "table-bordered table-striped stats-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -22,18 +22,30 @@
         <td><%= tesda_course.tc_name %></td>
         <td><%= tesda_course.tc_hrs_dur %></td>
         <td><%= tesda_course.tesda_course_sector.tcs_name %></td>
-        <td><%= link_to 'Show', tesda_course %></td>
+        <td>
+          <%= link_to tesda_course, class: 'btn btn-primary btn-xs' do %>
+            <i class="glyphicon glyphicon-eye-open"></i> Show
+          <% end %>
+        </td>
       <% if admin_signed_in? %>
-        <td><%= link_to 'Edit', edit_tesda_course_path(tesda_course) %></td>
-        <td><%= link_to 'Destroy', tesda_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to edit_tesda_course_path(tesda_course), class: 'btn btn-info btn-xs' do %>
+            <i class="glyphicon glyphicon-pencil"></i> Edit
+          <% end %>
+        </td>
+        <td>
+          <%= link_to tesda_course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+            <i class="glyphicon glyphicon-remove"></i> Destroy
+          <% end %>  
+        </td>
       <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
 <% if admin_signed_in? %>
-<%= link_to 'New TESDA Course', new_tesda_course_path %>
+  <%= link_to new_tesda_course_path, class: 'btn btn-success btn-xs' do %>
+    <i class="glyphicon glyphicon-plus"></i> New TESDA Course
+  <% end %>
 <% end %>

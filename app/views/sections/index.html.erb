@@ -2,7 +2,7 @@
 
 <h1>Sections</h1>
 
-<table class = "table-bordered stats-table">
+<table class = "table-bordered table-striped stats-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -22,14 +22,26 @@
         <td><%= section.year %></td>
         <td><%= section.grade_level %></td>
         <td><%= section.institution.name %></td>
-        <td><%= link_to 'Show', section %></td>
-        <td><%= link_to 'Edit', edit_section_path(section) %></td>
-        <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to section, class: 'btn btn-primary btn-xs' do %>
+            <i class="glyphicon glyphicon-eye-open"></i> Show
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_section_path(section), class: 'btn btn-info btn-xs' do %>
+            <i class="glyphicon glyphicon-pencil"></i> Edit
+          <% end %>
+        </td>
+        <td>
+          <%= link_to section, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+            <i class="glyphicon glyphicon-remove"></i> Destroy
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Section', new_section_path %>
+<%= link_to new_section_path, class: 'btn btn-success btn-xs' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Section
+<% end %>

@@ -14,27 +14,31 @@
         <nav>
           <ul class = "nav navbar-nav navbar-left">
             <li>
-            <%= link_to institutions_path do %>
-              <i class="glyphicon glyphicon-book"></i> Institutions Index
-            <% end %>
+              <%= link_to institutions_path do %>
+                <i class="glyphicon glyphicon-book"></i> Institutions Index
+              <% end %>
             </li>
             <li>
-            <%= link_to tesda_course_sectors_path do %>
-              <i class="glyphicon glyphicon-screenshot"></i> TESDA Tracker
-            <% end %>
+              <%= link_to tesda_course_sectors_path do %>
+                <i class="glyphicon glyphicon-screenshot"></i> TESDA Tracker
+              <% end %>
             </li>
             <li>
-            <%= link_to regions_path do %>
-              <i class="glyphicon glyphicon-list-alt"></i> Region Records
-            <% end %>
+              <%= link_to regions_path do %>
+                <i class="glyphicon glyphicon-list-alt"></i> Region Records
+              <% end %>
             </li>
             <% if principal_signed_in? %>
-            <li>
-            <%= link_to('Section Set', sections_path) %>
-            </li>
-            <li>
-            <%= link_to('Teacher Tracklist', teachers_path) %>
-            </li>
+              <li>
+                <%= link_to sections_path do %>
+                  <i class="glyphicon glyphicon-th-list"></i> Section Set
+                <% end %>
+              </li>
+              <li>
+                <%= link_to teachers_path do %>
+                  <i class="glyphicon glyphicon-apple"></i> Teacher Tracklist
+                <% end %>
+              </li>
             <% end %>
           </ul>
           
@@ -44,27 +48,30 @@
                 <p class = "navbar-text admin-logged-in"> Logged in as admin </p>
               </li>
               <li>
-                <%= link_to('Logout', destroy_admin_session_path, method: :delete) %>
+                <%= link_to destroy_admin_session_path, method: :delete do %>
+                  <i class="glyphicon glyphicon-log-out"></i> Log Out (Admin)
+                <% end %>
               </li>
-            <% end %>
-            <% if principal_signed_in? %>
+            <% elsif principal_signed_in? %>
               <li>
                 <p class = "navbar-text prin-logged-in"> Logged in as principal </p>
               </li>
               <li>
-              <%= link_to('Logout', destroy_principal_session_path, method: :delete) %>        
+                <%= link_to destroy_principal_session_path, method: :delete do %>
+                  <i class="glyphicon glyphicon-log-out"></i> Log Out (Principal)
+                <% end %>
               </li>
             <% end %>
             <% if !admin_signed_in? && !principal_signed_in? %>
               <li>
-              <%= link_to new_principal_session_path do %>
-                <i class="glyphicon glyphicon-log-in"></i> Login as Principal
-              <% end %>
+                <%= link_to new_principal_session_path do %>
+                  <i class="glyphicon glyphicon-log-in"></i> Log In as Principal
+                <% end %>
               </li>
               <li>
-              <%= link_to new_admin_session_path do %>
-                <i class="glyphicon glyphicon-log-in"></i> Login as Admin
-              <% end %>
+                <%= link_to new_admin_session_path do %>
+                  <i class="glyphicon glyphicon-log-in"></i> Log In as Admin
+                <% end %>
               </li>
             <% end %>
           </ul>

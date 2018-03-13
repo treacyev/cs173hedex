@@ -11,7 +11,7 @@
 
 <h1>Institutions</h1>
 
-<table class = "table-bordered stats-table">
+<table class = "table-bordered table-striped stats-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -37,21 +37,30 @@
         <td><%= institution.address_municipality %></td>
         <td><%= institution.address_street_no %></td>
         <td><%= institution.cong_distr_num %></td>
-        <td><%= link_to institution, class: 'btn btn-primary btn-xs' do %>
-              <i class="glyphicon glyphicon-eye-open"></i> Show
-            <% end %>
+        <td>
+          <%= link_to institution, class: 'btn btn-primary btn-xs' do %>
+            <i class="glyphicon glyphicon-eye-open"></i> Show
+          <% end %>
         </td>
       <% if admin_signed_in? %>
-        <td><%= link_to 'Edit', edit_institution_path(institution) %></td>
-        <td><%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to edit_institution_path(institution), class: 'btn btn-info btn-xs' do %>
+            <i class="glyphicon glyphicon-pencil"></i> Edit
+          <% end %>
+        </td>
+        <td>
+          <%= link_to institution, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+            <i class="glyphicon glyphicon-remove"></i> Destroy
+          <% end %>  
+        </td>
       <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
 <% if admin_signed_in? %>
-<%= link_to 'New Institution', new_institution_path %>
+  <%= link_to new_institution_path, class: 'btn btn-success btn-xs' do %>
+    <i class="glyphicon glyphicon-plus"></i> New Institution
+  <% end %>
 <% end %>
