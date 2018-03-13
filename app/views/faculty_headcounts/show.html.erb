@@ -35,9 +35,12 @@
   <%= @faculty_headcount.maintainer %>
 </p>
 
-<% if admin_signed_in? %>
-<%= link_to 'Edit', edit_institution_faculty_headcount_path(@institution, @faculty_headcount) %> |
-<% end %>
 <%= link_to institution_faculty_headcounts_path, class: 'btn btn-primary btn-xs' do %>
-    <i class="glyphicon glyphicon-arrow-left"></i> Back
+  <i class="glyphicon glyphicon-arrow-left"></i> Back
+<% end %>
+<% if admin_signed_in? %>
+  |
+  <%= link_to edit_institution_faculty_headcount_path(@institution, @faculty_headcount), class: 'btn btn-info btn-xs' do %>
+    <i class="glyphicon glyphicon-pencil"></i> Edit
+  <% end %>
 <% end %>
